@@ -62,3 +62,75 @@ The goal of this project is to demonstrate the capabilities and reliability of L
 This project aims to demonstrate the feasibility and functionality of Linux for the local library's IT needs. By showcasing the setup and configuration of essential services on the server and workstation, we aim to provide a reliable and convincing solution for migrating to Linux.
 
 ---
+
+
+
+
+Certainly! Below is a README section specifically focusing on DHCP (Dynamic Host Configuration Protocol) setup and configuration for your Kali Linux machine. This guide will help users understand how to install and configure a DHCP server on Kali Linux.
+
+---
+
+# DHCP Server Configuration on Kali Linux
+
+This guide outlines the steps to install and configure a DHCP (Dynamic Host Configuration Protocol) server on Kali Linux.
+
+## Installation
+
+1. **Update Package Lists**:
+   Ensure your package list is up-to-date before installing the DHCP server:
+   ```bash
+   sudo apt update
+   ```
+
+2. **Install DHCP Server (`isc-dhcp-server`)**:
+   Use the following command to install the DHCP server package:
+   ```bash
+   sudo apt install isc-dhcp-server
+   ```
+
+## Configuration
+
+1. **Edit DHCP Configuration File**:
+   Edit the DHCP server configuration file `/etc/dhcp/dhcpd.conf` to define your DHCP settings. Use a text editor (e.g., `nano`, `vim`) to open the file:
+   ```bash
+   sudo vim /etc/dhcp/dhcpd.conf
+   ```
+
+2. **Sample DHCP Configuration**:
+   Configure the DHCP server with a sample configuration.
+<img width="1635" alt="Screenshot 2024-04-07 at 13 53 21" src="https://github.com/cyber272/Linux-Server-Demonstration/assets/155965877/059b991e-1e0d-4af7-956e-8fd54434ac22">
+
+3. **Start and Enable DHCP Server**:
+   Start and enable the DHCP server service to apply the configuration changes:
+   ```bash
+   sudo systemctl start isc-dhcp-server
+   sudo systemctl enable isc-dhcp-server
+   sudo systemctl restart isc-dhcp-server
+   ```
+
+## Verification
+
+1. **Check DHCP Server Status**:
+   Verify that the DHCP server is running without errors:
+   ```bash
+   sudo systemctl status isc-dhcp-server
+   ```
+<img width="1635" alt="Screenshot 2024-04-07 at 13 13 54" src="https://github.com/cyber272/Linux-Server-Demonstration/assets/155965877/7afa81a9-3e7c-42ef-9c16-fd0eb12ca698">
+
+2. **Monitor DHCP Server Logs** (Optional):
+   Monitor DHCP server logs for any issues or troubleshooting:
+   ```bash
+   sudo journalctl -u isc-dhcp-server.service
+   ```
+
+## Additional Notes
+
+- Customize the DHCP configuration (`dhcpd.conf`) based on your network requirements and IP address ranges.
+- Ensure that the DHCP server is running on the correct network interface (`INTERFACESv4` in `/etc/default/isc-dhcp-server`).
+- Adjust firewall (e.g., `ufw`) rules to allow DHCP traffic (`UDP ports 67` and `68`) if needed.
+
+---
+
+Feel free to customize and expand upon this DHCP configuration guide based on your specific network setup and requirements. Save this content into a file named `README.md` within your GitHub repository or documentation for easy reference and sharing.
+
+In the next sections of your README, you can include similar guides for configuring UFW (Uncomplicated Firewall), DNS (Domain Name System), MariaDB (MySQL), and HTTP services on your Kali Linux machine.
