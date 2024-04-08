@@ -91,16 +91,31 @@ This guide outlines the steps to install and configure a DHCP (Dynamic Host Conf
 ## Configuration
 
 1. **Edit DHCP Configuration File**:
+2. Run ip Command:
+To view detailed information about your network interfaces, use:
+
+- ifconfig 
+- ip addr show
+  
+<img width="1533" alt="Screenshot 2024-04-08 at 08 54 15" src="https://github.com/cyber272/Linux-Server-Demonstration/assets/155965877/c0334d5d-e7b1-45ed-b773-482f002908eb">
+
    Edit the DHCP server configuration file `/etc/dhcp/dhcpd.conf` to define your DHCP settings. Use a text editor (e.g., `nano`, `vim`) to open the file:
    ```bash
    sudo vim /etc/dhcp/dhcpd.conf
    ```
+   <img width="1533" alt="Screenshot 2024-04-08 at 08 58 12" src="https://github.com/cyber272/Linux-Server-Demonstration/assets/155965877/64593a0a-b6cb-4139-b273-ea6514b3dc69">
 
-2. **Sample DHCP Configuration**:
-   Configure the DHCP server with a sample configuration.
-<img width="1635" alt="Screenshot 2024-04-07 at 13 53 21" src="https://github.com/cyber272/Linux-Server-Demonstration/assets/155965877/059b991e-1e0d-4af7-956e-8fd54434ac22">
 
-3. **Start and Enable DHCP Server**:
+Edit the DHCP server defaults file:
+
+sudo nano /etc/default/isc-dhcp-server
+
+<img width="1533" alt="Screenshot 2024-04-08 at 08 57 19" src="https://github.com/cyber272/Linux-Server-Demonstration/assets/155965877/32d5c5df-d6c6-4d0f-9a94-f21442a3ef30">
+
+   
+<img width="1533" alt="Screenshot 2024-04-08 at 08 57 19" src="https://github.com/cyber272/Linux-Server-Demonstration/assets/155965877/c5bac0e2-10cb-4014-a469-617a2a4daaea">
+
+4. **Start and Enable DHCP Server**:
    Start and enable the DHCP server service to apply the configuration changes:
    ```bash
    sudo systemctl start isc-dhcp-server
@@ -115,13 +130,16 @@ This guide outlines the steps to install and configure a DHCP (Dynamic Host Conf
    ```bash
    sudo systemctl status isc-dhcp-server
    ```
-<img width="1635" alt="Screenshot 2024-04-07 at 13 13 54" src="https://github.com/cyber272/Linux-Server-Demonstration/assets/155965877/7afa81a9-3e7c-42ef-9c16-fd0eb12ca698">
+<img width="1533" alt="Screenshot 2024-04-08 at 08 46 10" src="https://github.com/cyber272/Linux-Server-Demonstration/assets/155965877/d4ec5e48-ba58-4cc7-b896-0657b98d3cdd">
+
+
 
 2. **Monitor DHCP Server Logs** (Optional):
    Monitor DHCP server logs for any issues or troubleshooting:
    ```bash
    sudo journalctl -u isc-dhcp-server.service
    ```
+<img width="1533" alt="Screenshot 2024-04-08 at 09 08 42" src="https://github.com/cyber272/Linux-Server-Demonstration/assets/155965877/fbca5baf-0fb6-46b8-a9d0-9e109bd7baa4">
 
 ## Additional Notes
 
@@ -130,7 +148,39 @@ This guide outlines the steps to install and configure a DHCP (Dynamic Host Conf
 - Adjust firewall (e.g., `ufw`) rules to allow DHCP traffic (`UDP ports 67` and `68`) if needed.
 
 ---
+# How to Install and Use UFW (Uncomplicated Firewall)
 
-Feel free to customize and expand upon this DHCP configuration guide based on your specific network setup and requirements. Save this content into a file named `README.md` within your GitHub repository or documentation for easy reference and sharing.
+This guide provides instructions on installing and using UFW (Uncomplicated Firewall) on a Debian-based Linux system such as Kali Linux.
 
-In the next sections of your README, you can include similar guides for configuring UFW (Uncomplicated Firewall), DNS (Domain Name System), MariaDB (MySQL), and HTTP services on your Kali Linux machine.
+## Installation
+
+1. **Update Package Repositories**:
+   ```bash
+   sudo apt update
+   sudo apt install ufw
+   ```
+
+2. To enable and disable the firewall also Check Firewall Status:
+- sudo ufw enable
+- sudo ufw disable
+- sudo ufw status
+   
+3. Allow Incoming SSH Connections and Allow Other Services:
+- sudo ufw allow ssh
+- sudo ufw allow service_name
+   - sudo ufw allow 53
+
+Deny Incoming Connections:
+- sudo ufw deny 1234
+
+To allow only TCP or UDP specifically, you can use:
+- sudo ufw allow 53/tcp
+
+
+
+---
+---
+
+
+
+
