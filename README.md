@@ -69,6 +69,7 @@ This project aims to demonstrate the feasibility and functionality of Linux for 
 Certainly! Below is a README section specifically focusing on DHCP (Dynamic Host Configuration Protocol) setup and configuration for your Kali Linux machine. This guide will help users understand how to install and configure a DHCP server on Kali Linux.
 
 ---
+---
 
 # DHCP Server Configuration on Kali Linux
 
@@ -138,12 +139,19 @@ sudo nano /etc/default/isc-dhcp-server
    ```
 <img width="1533" alt="Screenshot 2024-04-08 at 09 08 42" src="https://github.com/cyber272/Linux-Server-Demonstration/assets/155965877/fbca5baf-0fb6-46b8-a9d0-9e109bd7baa4">
 
+
+Troubleshooting DHCP (Dynamic Host Configuration Protocol)
+- sudo systemctl status dhclient
+- sudo netsate -anp | grep dhcp  # for see the port of dhcp how lessan to 
+	- sudo netsate -tuln | grep :67 
+
 ## Additional Notes
 
 - Customize the DHCP configuration (`dhcpd.conf`) based on your network requirements and IP address ranges.
 - Ensure that the DHCP server is running on the correct network interface (`INTERFACESv4` in `/etc/default/isc-dhcp-server`).
 - Adjust firewall (e.g., `ufw`) rules to allow DHCP traffic (`UDP ports 67` and `68`) if needed.
 
+---
 ---
 # How to Install and Use UFW (Uncomplicated Firewall)
 
