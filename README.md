@@ -109,9 +109,6 @@ To view detailed information about your network interfaces, use:
 Edit the DHCP server defaults file:
 
 sudo nano /etc/default/isc-dhcp-server
-
-<img width="1533" alt="Screenshot 2024-04-08 at 08 57 19" src="https://github.com/cyber272/Linux-Server-Demonstration/assets/155965877/32d5c5df-d6c6-4d0f-9a94-f21442a3ef30">
-
    
 <img width="1533" alt="Screenshot 2024-04-08 at 08 57 19" src="https://github.com/cyber272/Linux-Server-Demonstration/assets/155965877/c5bac0e2-10cb-4014-a469-617a2a4daaea">
 
