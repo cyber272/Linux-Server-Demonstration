@@ -62,13 +62,6 @@ The goal of this project is to demonstrate the capabilities and reliability of L
 This project aims to demonstrate the feasibility and functionality of Linux for the local library's IT needs. By showcasing the setup and configuration of essential services on the server and workstation, we aim to provide a reliable and convincing solution for migrating to Linux.
 
 ---
-
-
-
-
-Certainly! Below is a README section specifically focusing on DHCP (Dynamic Host Configuration Protocol) setup and configuration for your Kali Linux machine. This guide will help users understand how to install and configure a DHCP server on Kali Linux.
-
----
 ---
 
 # DHCP Server Configuration on Kali Linux
